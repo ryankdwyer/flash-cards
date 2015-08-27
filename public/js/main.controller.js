@@ -37,10 +37,17 @@ app.controller('MainController', function ($scope, FlashCardsFactory, ScoreFacto
     $scope.updateScore = function (correctness) {
         if (correctness) {
             $scope.score.correct++;
-        }
-        else {
+        } else {
             $scope.score.incorrect++;
         }
 
+    };
+});
+
+app.filter('cheat', function(){
+    return function(answers) {
+        return answers.filter(function(element){
+            return element.correct;
+        });
     };
 });

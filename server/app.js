@@ -21,6 +21,7 @@ var indexHtmlPath = path.join(__dirname, '../index.html');
 // something in our public folder, serve up that file
 // e.g. angular.js, style.css
 app.use(express.static(publicPath));
+app.use(express.static(path.join(__dirname, '../templates')));
 
 // If we're hitting our home page, serve up our index.html file!
 app.get('/', function (req, res) {
